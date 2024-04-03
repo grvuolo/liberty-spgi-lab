@@ -1,0 +1,4 @@
+CWWKG0030E: Pid reference com.ibm.ws.jca.resourceAdapter listed on ibm:reference extension does not exist.
+CWWKG0030E: Pid reference com.ibm.ws.security.jca.internal.authdata.config listed on ibm:reference extension does not exist.
+CWWKG0030E: Pid reference com.ibm.ws.jdbc.dataSource listed on ibm:reference extension does not exist.
+CWWKG0109I: The schema was created in the [/Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/.libertyls/ol-24.0.0.3.xsd] file.

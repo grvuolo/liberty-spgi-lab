@@ -1,0 +1,100 @@
+********************************************************************************
+product = Open Liberty 24.0.0.3 (wlp-1.0.87.cl240320240311-1901)
+wlp.install.dir = /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/
+java.home = /opt/homebrew/Cellar/openjdk/21.0.2/libexec/openjdk.jdk/Contents/Home
+java.version = 21.0.2
+java.runtime = OpenJDK Runtime Environment (21.0.2)
+os = Mac OS X (14.4.1; aarch64) (en_ES)
+process = 38950@Giovannis-MacBook-Pro.local
+Classpath = /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/bin/tools/ws-server.jar
+Java Library path = /Users/grvuolo/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+********************************************************************************
+[3/27/24, 14:22:25:720 CET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[3/27/24, 14:22:25:995 CET] 0000002b com.ibm.ws.config.xml.internal.ServerXMLConfiguration        A CWWKG0093A: Processing configuration drop-ins resource: /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml
+[3/27/24, 14:22:26:037 CET] 00000032 com.ibm.ws.logging.internal.TraceSpecification               I TRAS0018I: The trace state has been changed. The new trace state is *=info:com.ibm.ws.microprofile.health.*=all.
+[3/27/24, 14:22:26:095 CET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.505 seconds
+[3/27/24, 14:22:26:110 CET] 00000036 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[3/27/24, 14:22:26:613 CET] 00000029 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0007I: The security service is starting...
+[3/27/24, 14:22:26:698 CET] 0000002b com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[3/27/24, 14:22:26:913 CET] 0000002d com.ibm.ws.cache.ServerCache                                 I DYNA1001I: WebSphere Dynamic Cache instance named baseCache initialized successfully.
+[3/27/24, 14:22:26:914 CET] 0000002d com.ibm.ws.cache.ServerCache                                 I DYNA1071I: The cache provider default is being used.
+[3/27/24, 14:22:26:914 CET] 0000002d com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[3/27/24, 14:22:26:973 CET] 00000032 com.ibm.ws.ssl.config.WSKeyStore                             A CWPKI0820A: The default keystore has been created using the 'keystore_password' environment variable.
+[3/27/24, 14:22:26:975 CET] 00000032 com.ibm.ws.ssl.config.WSKeyStore                             I CWPKI0802I: Creating the SSL certificate. This may take a few seconds.
+[3/27/24, 14:22:26:987 CET] 00000040 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            I CWWKS4103I: Creating the LTPA keys. This may take a few seconds.
+[3/27/24, 14:22:27:000 CET] 00000029 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1123I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been activated. 
+[3/27/24, 14:22:27:268 CET] 00000040 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            A CWWKS4104A: LTPA keys created in 0.281 seconds. LTPA key file: /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/resources/security/ltpa.keys
+[3/27/24, 14:22:27:270 CET] 00000040 com.ibm.ws.security.token.ltpa.internal.LTPAKeyCreateTask    I CWWKS4105I: LTPA configuration is ready after 0.285 seconds.
+[3/27/24, 14:22:27:281 CET] 00000029 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[3/27/24, 14:22:27:286 CET] 00000029 .microprofile.metrics.internal.monitor.MonitorMetricsHandler I CWPMI2003I: Monitoring metrics can be retrieved through mpMetrics.
+[3/27/24, 14:22:27:408 CET] 0000004d com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application guide-getting-started.
+[3/27/24, 14:22:27:408 CET] 0000004d bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The guide-getting-started application is using the loose application definition at the /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/apps/guide-getting-started.war.xml location.
+[3/27/24, 14:22:27:491 CET] 0000004c com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: PublicMicroProfileMetrics.
+[3/27/24, 14:22:27:491 CET] 0000004a com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: health.
+[3/27/24, 14:22:27:491 CET] 0000004b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: ibm/api.
+[3/27/24, 14:22:27:492 CET] 0000004a com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module health has been bound to default_host.
+[3/27/24, 14:22:27:492 CET] 0000004b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module ibm/api has been bound to default_host.
+[3/27/24, 14:22:27:492 CET] 0000004c com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module PublicMicroProfileMetrics has been bound to default_host.
+[3/27/24, 14:22:27:493 CET] 0000004a com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.1.161:9080/health/
+[3/27/24, 14:22:27:494 CET] 0000004c com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.1.161:9080/metrics/
+[3/27/24, 14:22:27:494 CET] 0000004b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.1.161:9080/ibm/api/
+[3/27/24, 14:22:27:505 CET] 0000004d org.jboss.weld.Version                                       I WELD-000900: 5.1.1 (SP1)
+[3/27/24, 14:22:27:518 CET] 00000050 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/ibm/api
+[3/27/24, 14:22:27:518 CET] 0000004f com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/metrics
+[3/27/24, 14:22:27:518 CET] 0000004e com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/health
+[3/27/24, 14:22:27:540 CET] 00000050 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/27/24, 14:22:27:548 CET] 0000004e com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/27/24, 14:22:27:548 CET] 0000004f com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/27/24, 14:22:27:595 CET] 0000004f com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[3/27/24, 14:22:27:610 CET] 0000004e com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.1.internal.jakarta] [/health] [HealthCheckReadinessServlet]: Initialization successful.
+[3/27/24, 14:22:27:611 CET] 0000004e com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.1.internal.jakarta] [/health] [HealthCheckServlet]: Initialization successful.
+[3/27/24, 14:22:27:612 CET] 0000004e com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.1.internal.jakarta] [/health] [HealthCheckStartupServlet]: Initialization successful.
+[3/27/24, 14:22:27:612 CET] 0000004e com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.health.3.1.internal.jakarta] [/health] [HealthCheckLivenessServlet]: Initialization successful.
+[3/27/24, 14:22:27:625 CET] 0000004f com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [io.openliberty.microprofile.metrics.5.0.public.internal] [/metrics] [PublicMetricsRESTProxyServlet]: Initialization successful.
+[3/27/24, 14:22:27:646 CET] 00000051 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/27/24, 14:22:27:728 CET] 00000032 com.ibm.ws.ssl.config.WSKeyStore                             A CWPKI0803A: SSL certificate created in 0.753 seconds. SSL key file: /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/resources/security/key.p12
+[3/27/24, 14:22:27:728 CET] 00000032 com.ibm.ws.ssl.config.WSKeyStore                             I Successfully loaded default keystore: /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/resources/security/key.p12 of type: PKCS12
+[3/27/24, 14:22:27:890 CET] 0000004d com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/27/24, 14:22:27:890 CET] 0000004d com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/27/24, 14:22:27:890 CET] 0000004d com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.1.161:9080/dev/
+[3/27/24, 14:22:27:892 CET] 00000048 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/dev
+[3/27/24, 14:22:27:892 CET] 00000048 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/27/24, 14:22:27:908 CET] 00000048 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application guide-getting-started started in 0.500 seconds.
+[3/27/24, 14:22:27:917 CET] 00000052 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/27/24, 14:22:27:919 CET] 00000036 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host *  (IPv6) port 9080.
+[3/27/24, 14:22:27:923 CET] 00000036 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint-ssl has been started and is now listening for requests on host *  (IPv6) port 9443.
+[3/27/24, 14:22:27:933 CET] 00000036 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [cdi-4.0, distributedMap-1.0, jndi-1.0, json-1.0, jsonb-3.0, jsonp-2.1, monitor-1.0, mpConfig-3.0, mpHealth-4.0, mpMetrics-5.0, restfulWS-3.1, restfulWSClient-3.1, ssl-1.0, transportSecurity-1.0].
+[3/27/24, 14:22:27:933 CET] 00000036 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 1.839 seconds.
+[3/27/24, 14:22:27:933 CET] 00000036 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 2.343 seconds.
+[3/27/24, 14:22:28:018 CET] 00000048 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.sample.system.SystemApplication$Proxy$_$$_WeldClientProxy
+[3/27/24, 14:22:28:027 CET] 00000048 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [guide-getting-started] [/dev] [io.openliberty.sample.system.SystemApplication]: Initialization successful.
+[3/27/24, 14:22:29:871 CET] 00000053 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.1.161:9080/dev/
+[3/27/24, 14:22:29:872 CET] 00000053 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [guide-getting-started] [/dev] [io.openliberty.sample.system.SystemApplication]: Destroy successful.
+[3/27/24, 14:22:29:881 CET] 00000053 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application guide-getting-started has stopped successfully.
+[3/27/24, 14:22:29:884 CET] 00000053 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application guide-getting-started.
+[3/27/24, 14:22:29:884 CET] 00000053 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The guide-getting-started application is using the loose application definition at the /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/apps/guide-getting-started.war.xml location.
+[3/27/24, 14:22:29:896 CET] 00000040 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/27/24, 14:22:29:977 CET] 00000053 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/27/24, 14:22:29:977 CET] 00000053 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/27/24, 14:22:29:977 CET] 00000053 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://192.168.1.161:9080/dev/
+[3/27/24, 14:22:29:978 CET] 00000038 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/dev
+[3/27/24, 14:22:29:978 CET] 00000038 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/27/24, 14:22:29:979 CET] 00000038 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application guide-getting-started updated in 0.095 seconds.
+[3/27/24, 14:22:29:987 CET] 0000004f com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/grvuolo/Library/CloudStorage/Box-Box/Lab/liberty/lab-instanton/techxchange-instanton-lab/finish/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/27/24, 14:22:30:008 CET] 00000038 org.jboss.resteasy.resteasy_jaxrs.i18n                       I RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class io.openliberty.sample.system.SystemApplication$Proxy$_$$_WeldClientProxy
+[3/27/24, 14:22:30:009 CET] 00000038 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [guide-getting-started] [/dev] [io.openliberty.sample.system.SystemApplication]: Initialization successful.
+[3/27/24, 14:22:40:870 CET] 0000001d com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[3/27/24, 14:22:40:872 CET] 0000006b com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[3/27/24, 14:22:40:875 CET] 00000054 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint-ssl has stopped listening for requests on host *  (IPv6) port 9443.
+[3/27/24, 14:22:40:875 CET] 00000054 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host *  (IPv6) port 9080.
+[3/27/24, 14:22:40:875 CET] 00000054 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.1.161:9080/dev/
+[3/27/24, 14:22:40:875 CET] 00000054 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.1.161:9080/health/
+[3/27/24, 14:22:40:875 CET] 00000054 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.1.161:9080/metrics/
+[3/27/24, 14:22:40:876 CET] 00000054 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://192.168.1.161:9080/ibm/api/
+[3/27/24, 14:22:41:021 CET] 0000001e com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Wednesday, March 27, 2024 at 2:22 PM. The server defaultServer is shutting down.
+[3/27/24, 14:22:41:882 CET] 0000006b com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[3/27/24, 14:22:41:902 CET] 0000004c com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application guide-getting-started has stopped successfully.
+[3/27/24, 14:22:41:964 CET] 0000006b .microprofile.metrics.internal.monitor.MonitorMetricsHandler I CWPMI2004I: All monitoring metrics were unregistered from mpMetrics.
+[3/27/24, 14:22:41:986 CET] 0000006b ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1124I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been deactivated. 
+[3/27/24, 14:22:41:986 CET] 0000006b com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0009I: The security service has stopped.
+[3/27/24, 14:22:42:121 CET] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 16.53 seconds.
