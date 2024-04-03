@@ -1,4 +1,4 @@
-podman run \
+docker run \
   --rm \
   --cap-add=CHECKPOINT_RESTORE \
   --cap-add=SETPCAP \

@@ -1,4 +1,4 @@
-podman build \
+docker build \
   -t dev.local/getting-started-instanton \
   --cap-add=CHECKPOINT_RESTORE \
   --cap-add=SYS_PTRACE\
