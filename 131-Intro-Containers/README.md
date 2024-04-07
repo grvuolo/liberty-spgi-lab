@@ -11,7 +11,7 @@ Need support? Contact **Kevin Postreich, Yi Tang**
 <a name="Background"> </a>
 ## Background
 
-If you are expecting a lab about `containers and podman`, you are at the right place.
+If you are expecting a lab about `containers and docker`, you are at the right place.
 This lab will introduce you to the basic concepts of containerization, including:
 
 - What are containers and container images
@@ -22,7 +22,7 @@ This lab will introduce you to the basic concepts of containerization, including
 <a name="Prerequisites"> </a>
 ## Prerequisites
 
-- You have `podman` or `docker` installed.  Only `podman` is installed for this lab.
+- You have `podman` or `docker` installed.  Only `docker` is installed for this lab.
 - You have access to the internet.
 
 
@@ -147,18 +147,20 @@ The lab environment contains six (6) Linux VMs.
   
     <br>
 	
-2. List version of podman: 
+2. List version of docker: 
 
      ```
-     podman --version
+     docker --version
      ```  
    
     Example output:
     
-        podman version 4.6.1
+        Docker version 23.0.1, build a5ee5b1
 
     
    
+    - For more background on docker command line: [https://docs.docker.com/engine/reference/commandline/cli/](https://docs.docker.com/engine/reference/commandline/cli/)
+
     <br/>
 
 3. From the terminal window  in the VM, clone the github repo to your local directory. 
@@ -184,7 +186,7 @@ In this section of the lab, you will work with a pre-built container image from 
 1. Container images must be available locally before they can be run. To list available local images: 
 
      ```
-     podman images
+     docker images
      ```
    
      **Note:** You may see some images that already exit on the VM, whch are used for different labs.  
@@ -208,7 +210,7 @@ In this section of the lab, you will work with a pre-built container image from 
 2. Images are hosted in container registries. The default container registry for docker is docker hub, located at https://hub.docker.com.  Let's pull a test image from docker hub:  
 
      ```
-     podman pull openshift/hello-openshift
+     docker pull openshift/hello-openshift
      ```
         
      And the output:
@@ -226,7 +228,7 @@ In this section of the lab, you will work with a pre-built container image from 
 3. List available local images again: 
 
      ```
-     podman images | grep -B1 hello
+     docker images | grep -B1 hello
      ```
    
      The **hello-openshift** image is now listed
@@ -239,7 +241,7 @@ In this section of the lab, you will work with a pre-built container image from 
 4. Inspect the image metadata:
    
      ```   
-     podman inspect openshift/hello-openshift
+     docker inspect openshift/hello-openshift
      ```
 	
     **Note**: 
@@ -284,9 +286,9 @@ In this section of the lab, you will work with a pre-built container image from 
         ![hello-openshift-detaila](images/hello-openshift-details.png)
 
 
-5. Run the image in an container: Notice the exposed ports (8083 and 8888) on the **podman run** command. 
+5. Run the image in an container: Notice the exposed ports (8083 and 8888) on the **docker run** command. 
    ```
-   podman run --name hello1 -d -p 8083:8080 -p 8888:8888 openshift/hello-openshift
+   docker run --name hello1 -d -p 8083:8080 -p 8888:8888 openshift/hello-openshift
    ```
    Note that:
     - The `--name` option gives the container a name.
@@ -312,7 +314,7 @@ In this section of the lab, you will work with a pre-built container image from 
 
 7. Run another instance of the same image. Note that this new instance is assigned new port numbers 8084 and 8889 on the host. This is so that they don't conflict with the ports 8083 and 8888 already allocated to the first instance.
    ```
-   podman run --name hello2 -d -p 8084:8080 -p 8889:8888 openshift/hello-openshift
+   docker run --name hello2 -d -p 8084:8080 -p 8889:8888 openshift/hello-openshift
    ```
     **Question:** How does this compare to the time it takes to start a new virtual machine?
 	
@@ -327,9 +329,9 @@ In this section of the lab, you will work with a pre-built container image from 
      ![hello openshift](images/runprebuilt2.png)
    
 
-9. Use the `podman ps` command to verify there are two containers running in the same host: 
+9. Use the `docker ps` command to verify there are two containers running in the same host: 
 
-        podman ps | grep -B1 hello
+        docker ps | grep -B1 hello
 
     > Note: The "CONTAINER ID" may be different that illustratd. That is OK.
 
@@ -341,7 +343,7 @@ In this section of the lab, you will work with a pre-built container image from 
 
 10. View the logs: 
    ```
-   podman logs hello1
+   docker logs hello1
    ```
 
    And the output:
@@ -353,7 +355,7 @@ In this section of the lab, you will work with a pre-built container image from 
 
 11. View the logs on the second container: 
    ```
-   podman logs hello2
+   docker logs hello2
    ```
 
    And the output:
@@ -369,10 +371,10 @@ In this section of the lab, you will work with a pre-built container image from 
 
 12. To export the file system of a running container: 
    ```
-   podman export hello1 > hello1.tar
+   docker export hello1 > hello1.tar
    ```
 
-   > **Note:** You can use the podman export command to export a container to another system as an image tar file. You also need to export separately any data volumes that the container uses.
+   > **Note:** You can use the docker export command to export a container to another system as an image tar file. You also need to export separately any data volumes that the container uses.
 
 13. List the files on the file system: 
    ```
@@ -382,20 +384,19 @@ In this section of the lab, you will work with a pre-built container image from 
    **Note** that this is a very small image.
 
    ```
-            drwxr-xr-t 0/0               0 2024-04-07 11:13 dev/
-            drwxr-xr-x 0/0               0 2024-04-07 11:13 etc/
-            -rw------- 0/0              17 2024-04-07 11:13 etc/group
-            -rwx------ 0/0               0 2024-04-07 11:13 etc/hostname
-            -rwx------ 0/0               0 2024-04-07 11:13 etc/hosts
-            lrwxrwxrwx 0/0               0 2024-04-07 11:13 etc/mtab -> /proc/mounts
-            -rw------- 0/0              37 2024-04-07 11:13 etc/passwd
-            -rwx------ 0/0               0 2024-04-07 11:13 etc/resolv.conf
-            -rwxr-xr-x 0/0         6089990 2018-04-18 06:22 hello-openshift
-            drwxr-xr-x 0/0               0 2024-04-07 11:13 proc/
-            drwxr-xr-x 0/0               0 2024-04-07 11:13 run/
-            -rwx------ 0/0               0 2024-04-07 11:13 run/.containerenv
-            drwxr-xr-t 0/0               0 2024-04-07 11:13 run/secrets/
-            drwxr-xr-x 0/0               0 2024-04-07 11:13 sys/
+       -rwxr-xr-x 0/0               0 2020-04-29 16:48 .dockerenv
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 dev/
+       -rwxr-xr-x 0/0               0 2020-04-29 16:48 dev/console
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 dev/pts/
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 dev/shm/
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 etc/
+       -rwxr-xr-x 0/0               0 2020-04-29 16:48 etc/hostname
+       -rwxr-xr-x 0/0               0 2020-04-29 16:48 etc/hosts
+       lrwxrwxrwx 0/0               0 2020-04-29 16:48 etc/mtab -> /proc/mounts
+       -rwxr-xr-x 0/0               0 2020-04-29 16:48 etc/resolv.conf
+       -rwxr-xr-x 0/0         6089990 2018-04-18 10:22 hello-openshift
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 proc/
+       drwxr-xr-x 0/0               0 2020-04-29 16:48 sys/
   ```
 
 14. Run commands in the running container. 
@@ -411,7 +412,7 @@ In this section of the lab, you will work with a pre-built container image from 
 
 	
 	```
-	podman exec -ti hello1 /hello-openshift . 
+	docker exec -ti hello1 /hello-openshift . 
     ```
 	
 	
@@ -424,14 +425,14 @@ In this section of the lab, you will work with a pre-built container image from 
 
 15. Stop the containers that you have running:
     ```
-    podman stop hello1
-	podman stop hello2
+    docker stop hello1
+	docker stop hello2
 	```
 
 16. List running containers: 
 
     ```
-	podman ps | grep -B1 hello
+	docker ps | grep -B1 hello
     ```
 	
 	There should not be any running containers listed that match the name "hello"
@@ -444,7 +445,7 @@ In this section of the lab, you will work with a pre-built container image from 
 17. List the hello-openshift containers, including stopped containers: 
 
     ```
-	podman ps -a | grep -B1 hello
+	docker ps -a | grep -B1 hello
 	```
  
     You should see the two cntainers listed, although not running; STATUS is **Exited**
@@ -458,13 +459,13 @@ In this section of the lab, you will work with a pre-built container image from 
 18. Restart a stopped container: 
 
     ```
-    podman restart hello1
+    docker restart hello1
     ```
 
 19. List running containers: 
 
     ```
-	podman ps | grep -B1 hello
+	docker ps | grep -B1 hello
     ```
 	
 	The hello-openshift container is now running again.
@@ -477,15 +478,15 @@ In this section of the lab, you will work with a pre-built container image from 
 20. Stop the container: 
 
     ```
-	podman stop hello1
+	docker stop hello1
     ```
 	
 21. Remove stopped containers, and note that the hello1 and hello2 containers have been removed:
     
 	```
-	podman rm hello1
-    podman rm hello2
-    podman ps -a | grep -B1 hello
+	docker rm hello1
+    docker rm hello2
+    docker ps -a | grep -B1 hello
     ```
 	
 22. Remove the image from local cache:
@@ -493,7 +494,7 @@ In this section of the lab, you will work with a pre-built container image from 
     a. View current images:
     
     ```
-    podman images | grep hello
+    docker images | grep hello
     ```
 
     Example output:
@@ -506,7 +507,7 @@ In this section of the lab, you will work with a pre-built container image from 
      b. Remove the image:
     
     ```
-    podman rmi openshift/hello-openshift
+    docker rmi openshift/hello-openshift
     ```
       Example output:
     
@@ -520,7 +521,7 @@ In this section of the lab, you will work with a pre-built container image from 
     c. Check that the image has been removed:
         
     ```
-    podman images | grep hello-openshift
+    docker images | grep hello-openshift
     ```
     
       Example output:
@@ -573,7 +574,7 @@ The configuration file for the server is in the **server.xml**.
 
 3. Run the build.  Ensure you include `.` at the end of the command (the dot indicates using the file from the current directory):
     ```
-    sudo podman build -t app -f Containerfile .
+    docker build -t app -f Containerfile .
     ```
 
     - The `-t` option tags the name of the image as `app`.  
@@ -605,7 +606,7 @@ The configuration file for the server is in the **server.xml**.
 
 4. List the images to see that the new image `app` is built: 
    ```
-   podman images | grep -B1 '\<app\>'
+   docker images | grep -B1 '\<app\>'
    ```
    
    Output: 
@@ -620,7 +621,7 @@ The configuration file for the server is in the **server.xml**.
      **Note:** You are running with both http and https ports: 
    
      ```
-     podman run -d -p 9080:9080 -p 9443:9443 --name=app-instance app
+     docker run -d -p 9080:9080 -p 9443:9443 --name=app-instance app
      ```
 
 6. Access the application running in the container:
@@ -641,7 +642,7 @@ The configuration file for the server is in the **server.xml**.
 
 7. List the running containers: 
     ```
-    podman ps  | grep -B1 '\<app\>'
+    docker ps  | grep -B1 '\<app\>'
     ```
     Output: 
 
@@ -652,7 +653,7 @@ The configuration file for the server is in the **server.xml**.
 
 8. Access the logs to your container: 
      ```
-     podman logs -f app-instance
+     docker logs -f app-instance
      ```
     
     Partial Output: Shows the application named "app" started and the application server named "defaultServer" ready to run. 
@@ -668,7 +669,7 @@ The configuration file for the server is in the **server.xml**.
 
 9. Remote shell into your running container to poke around: 
    ```
-   podman exec -it app-instance /bin/sh
+   docker exec -it app-instance /bin/sh
    ```
    In the shell session,
     
@@ -692,7 +693,7 @@ The configuration file for the server is in the **server.xml**.
 	  
     <br>
  	  
-10. Type `Exit` to exit from the podman shell
+10. Type `Exit` to exit from the docker shell
     ```
     exit
     ```
@@ -702,16 +703,16 @@ The configuration file for the server is in the **server.xml**.
 11. Cleanup:
     
 	  ```
-	  podman stop app-instance
-	  podman rm app-instance
+	  docker stop app-instance
+	  docker rm app-instance
 	  ```
 
-12. Verify the container `app-instance` has been removed
+12. Verify the docker container `app-instance` has been removed
 
     ```
-    podman ps | grep app-instance
+    docker ps | grep app-instance
 
-    podman ps -a | grep app-instance    
+    docker ps -a | grep app-instance    
     ```
     
     Both commands should not return any results.
@@ -732,19 +733,19 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 1. Run the commands to tag the latest `app` image for our first version:
 
      ```
-     podman tag app app:1
+     docker tag app app:1
      ```
      ```
-     podman tag app app:1.3
+     docker tag app app:1.3
      ```
      ```
-     podman tag app app:1.3.5
+     docker tag app app:1.3.5
      ```
 
 2. List the  app images:
 
      ```
-     podman images | grep '\<app\>'
+     docker images | grep '\<app\>'
      ```
 
      And the output:
@@ -759,14 +760,14 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 
     Note that all the different tags are currently associated with the same image, as they have the same image ID.
 
-    After tagging, the command `podman run app:<version> ...` or `podman pull app:<version> ...` will resolve the available versions as follows:
+    After tagging, the command `docker run app:<version> ...` or `docker pull app:<version> ...` will resolve the available versions as follows:
 
     - `app:1` resolves to the latest 1.x.x version, which in this case is `1.3.5`.
     - `app:1.3` resolves to the latest 1.3.x version, which in this case is the `1.3.5`
     - `app:1.3.5` resolves to the exact version `1.3.5`.
 
     After you build a new patch image containing defect fixes, you want to manage the tags for the new image so that a
-    new `podman run app:<version> ...` or `podman pull app:<version> ...` command resolves the images as follows: 
+    new `docker run app:<version> ...` or `docker pull app:<version> ...` command resolves the images as follows: 
     
     **Note:** You will test this in the next steps:
 
@@ -780,7 +781,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 3. Let's simulate a defect fix by building a new image using `Containerfile1` instead of `Containerfile`:
 
     ```
-    sudo podman build -t app -f Containerfile1 .
+    docker build -t app -f Containerfile1 .
     ```
 
     Example partial output:
@@ -808,15 +809,15 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 4. Tag the imaage as follows :
 
     ```
-    podman tag app app:1
-    podman tag app app:1.3
-    podman tag app app:1.3.6
+    docker tag app app:1
+    docker tag app app:1.3
+    docker tag app app:1.3.6
     ```
 
 5. Verify that these three images all have the same **IMAGE ID** indicating they are all the same image: `app:1`, `app:1.3`, `app:1.3.6`.
 
     ```
-     podman images | grep '\<app\>'
+     docker images | grep '\<app\>'
     ```
 	```
     REPOSITORY                 TAG                        IMAGE ID       CREATED          SIZE
@@ -842,7 +843,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 6. Build a new image using `Containerfile2`:
 
     ```
-    sudo podman build -t app -f Containerfile2 .
+    docker build -t app -f Containerfile2 .
     ```
 
     The partial Output: 
@@ -871,12 +872,12 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 7. Tag the new image as follows:
 
     ```
-    podman tag app app:1
-    podman tag app app:1.4
-    podman tag app app:1.4.0
+    docker tag app app:1
+    docker tag app app:1.4
+    docker tag app app:1.4.0
     ```
 
-8. Use the command `podman images | grep '\<app\>'` and verify the following: 
+8. Use the command `docker images | grep '\<app\>'` and verify the following: 
 
     - `1`, `1.4`, and `1.4.0` are the same image
     - `1.3` and `1.3.6` are the same image
@@ -892,22 +893,22 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
    
 	```
 
-9. Remove the podman images 
+9. Remove the docker images 
 
     ```
-    podman rmi app:1
-	podman rmi app:1.4
-	podman rmi app:1.4.0
-	podman rmi app:1.3
-	podman rmi app:1.3.5
-	podman rmi app:1.3.6
-	podman rmi app:latest
+    docker rmi app:1
+	docker rmi app:1.4
+	docker rmi app:1.4.0
+	docker rmi app:1.3
+	docker rmi app:1.3.5
+	docker rmi app:1.3.6
+	docker rmi app:latest
     ```
 
 10.  Verify the images have been deleted. The following command should  not have any images listed. 
 
    ```
-   podman images | grep '\<app\>'
+   docker images | grep '\<app\>'
    ```   
 
 <br/>
