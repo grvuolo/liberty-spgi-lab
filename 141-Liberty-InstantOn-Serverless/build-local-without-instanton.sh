@@ -1,1 +1,1 @@
-docker build -t dev.local/getting-started .
+podman build -t dev.local/getting-started .
