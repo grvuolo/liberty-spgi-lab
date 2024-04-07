@@ -76,13 +76,13 @@ mvn package
 Run the provided script:
 
 ```bash
-./build-local-without-instanton.sh
+sudo ./build-local-without-instanton.sh
 ```
 
 Or type the following command:
 
 ```bash
-docker build -t dev.local/getting-started .
+podman build -t dev.local/getting-started .
 ```
 
 > **NOTE**: The Dockerfile is using a slim version of the Java 17 Open Liberty UBI.
@@ -101,7 +101,7 @@ Run the provided script:
 Or type the following command: 
 
 ```bash
-docker run --name getting-started --rm -p 9080:9080 dev.local/getting-started
+podman run --name getting-started --rm -p 9080:9080 dev.local/getting-started
 ```
 
 When the application is ready, you will see the following message:
@@ -231,19 +231,19 @@ oc get secrets -n openshift-image-registry | grep cluster-image-registry-operato
 Take note of the `TOKEN` value, as you need to substitute it in the following command that sets the registry password.
 
 ```bash
-export OCP_REGISTRY_PASSWORD=$(oc get secret -n openshift-image-registry cluster-image-registry-operator-token-<INPUT_TOKEN> -o=jsonpath='{.data.token}{"\n"}' | base64 -d)
+sudo export OCP_REGISTRY_PASSWORD=$(oc get secret -n openshift-image-registry cluster-image-registry-operator-token-<INPUT_TOKEN> -o=jsonpath='{.data.token}{"\n"}' | base64 -d)
 ```
 
 Now set the OpenShift registry host value.
 
 ```bash
-export OCP_REGISTRY_HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
+sudo export OCP_REGISTRY_HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 ```
 
 Finally, we have the values needed for podman to login into the OpenShift registry server.
 
 ```bash
-podman login -p $OCP_REGISTRY_PASSWORD -u kubeadmin $OCP_REGISTRY_HOST --tls-verify=false
+sudo podman login -p $OCP_REGISTRY_PASSWORD -u kubeadmin $OCP_REGISTRY_HOST --tls-verify=false
 ```
 
 ### Tag and push your 2 application images to the OpenShift registry
@@ -257,12 +257,12 @@ Now tag and push them to the OpenShift registry:
 
 ```bash
 # base application image
-podman tag dev.local/getting-started:latest $(oc registry info)/$(oc project -q)/getting-started:1.0-SNAPSHOT
-podman push $(oc registry info)/$(oc project -q)/getting-started:1.0-SNAPSHOT --tls-verify=false
+sudo podman tag dev.local/getting-started:latest $(oc registry info)/$(oc project -q)/getting-started:1.0-SNAPSHOT
+sudo podman push $(oc registry info)/$(oc project -q)/getting-started:1.0-SNAPSHOT --tls-verify=false
 
 # InstantOn application image
-podman tag dev.local/getting-started-instanton:latest $(oc registry info)/$(oc project -q)/getting-started-instanton:1.0-SNAPSHOT
-podman push $(oc registry info)/$(oc project -q)/getting-started-instanton:1.0-SNAPSHOT --tls-verify=false
+sudo podman tag dev.local/getting-started-instanton:latest $(oc registry info)/$(oc project -q)/getting-started-instanton:1.0-SNAPSHOT
+sudo podman push $(oc registry info)/$(oc project -q)/getting-started-instanton:1.0-SNAPSHOT --tls-verify=false
 ```
 
 ### Verify the images have been pushed to the OpenShift image repository
@@ -327,21 +327,6 @@ You should see the following output:
         1. Create KnativeServing
         1. Click `Create`
         1. Wait for the `Ready` Condition in `Status`
-    1. Install [KNative Eventing](https://docs.openshift.com/serverless/1.29/install/installing-knative-eventing.html)
-        1. Operators } Installed Operators
-        1. Project = `knative-eventing`
-        1. Red Hat OpenShift Serverless } Knative Eventing
-        1. Create KnativeEventing
-        1. Click `Create`
-        1. Wait for the `Ready` Condition in `Status`
-    1. Install the [`KNativeKafka` broker](https://docs.openshift.com/serverless/1.29/install/installing-knative-eventing.html#serverless-install-kafka-odc_installing-knative-eventing)
-        1. Knative Kafka } Create KnativeKafka
-        1. channel } enabled; bootstrapServers } my-cluster-kafka-bootstrap.amq-streams-kafka.svc:9092
-        1. source } enabled
-        1. broker } enabled; defaultConfig } bootstrapServers } my-cluster-kafka-bootstrap.amq-streams-kafka.svc:9092
-        1. sink } enabled
-        1. Click `Create`
-        1. Wait for the `Ready` Condition in `Status`
 
 ### Run the following commands to give your application the correct Service Account (SA) and Security Context Contraint (SCC) to run instantOn
 
@@ -401,13 +386,13 @@ oc apply -f deploy-without-instanton.yaml
 ### Monitor the base application
 
 ```bash
-kubectl get pods
+oc get pods
 ```
 
 Once the pod is running and displays a `POD NAME`, quickly take a look at the pod log to see how long the application took to start up.
 
 ```bash
-kubectl logs <POD NAME>
+oc logs <POD NAME>
 ```
 
 > **NOTE**: Knative will stop the pod if it does not receive a request in the specified time frame, which is set in a configuration yaml file. For this lab, the settings are in the `serving.yaml` file, and currently set to 30 seconds (as shown below).
@@ -428,10 +413,10 @@ spec:
 ### Deploy the application with InstantOn
 
 ```bash
-kubectl apply -f deploy-with-instanton.yaml
+oc apply -f deploy-with-instanton.yaml
 ```
 
-Use the same `kubectl get pods` and `kubeclt logs` commands as above to monitor the application.
+Use the same `oc get pods` and `oc logs` commands as above to monitor the application.
 
 Compare the start times of both applications and note how the InstantOn version again starts around 10x faster.
 
@@ -440,7 +425,13 @@ Compare the start times of both applications and note how the InstantOn version 
 To get the URL for the deployed applications, use the following command:
 
 ```bash
-kubectl get ksvc
+oc get ksvc
+```
+
+Before opening the links, watch the namespace pods to see how they are starting as soon as there is traffic
+
+```bash
+oc get pod -w
 ```
 
 Check out each of the applications by pointing your browser at the listed URL.
