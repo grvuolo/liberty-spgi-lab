@@ -57,7 +57,12 @@ cd liberty-spgi-lab/141-Liberty-InstantOn-Serverless
 
 ### Login to the OpenShift console, using the following URL:
 
-Once OCP server VM provisioned and ready, please use the button/link provide in the reservation page to access the web console. 
+A shared OpenShist cluster has been provisioned at the following URL: https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+
+go to `IBM Demo`
+
+username:
+password:
 
 ### Login to the OpenShift CLI [IF NEEDED]
 
