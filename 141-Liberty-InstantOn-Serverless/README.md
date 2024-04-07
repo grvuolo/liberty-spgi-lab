@@ -143,7 +143,7 @@ Note that there are 2 checkpoint options:
 Run the provided script:
 
 ```bash
-./build-local-with-instanton.sh
+sudo ./build-local-with-instanton.sh
 ```
 
 Or type the following command: 
@@ -208,8 +208,8 @@ To stop the running container, press `CTRL+C` in the command-line session where 
 ### Create the "dev" namespace and set it as the default
 
 ```bash
-kubectl create ns dev
-kubectl config set-context --current --namespace=dev
+oc adm new-project dev
+oc project dev
 ```
 
 ### Enable the default registry route in OpenShift to push images to its internal repos
@@ -280,7 +280,7 @@ Perform the following steps to enhance OCP to better manage OCP services, such a
 The Liberty Operator provides resources and configurations that make it easier to run Open Liberty applications on OCP.
 
 ```bash
-kubectl apply --server-side -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.2.1/kubectl/openliberty-app-crd.yaml
+oc apply --server-side -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.3.1/kubectl/openliberty-app-crd.yaml
 ```
 
 ### Apply the Liberty Operator to your namespace
@@ -289,9 +289,9 @@ kubectl apply --server-side -f https://raw.githubusercontent.com/OpenLiberty/ope
 OPERATOR_NAMESPACE=dev
 WATCH_NAMESPACE=dev
 ##
-curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.2.0/kubectl/openliberty-app-operator.yaml \
+curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.3.1/kubectl/openliberty-app-operator.yaml \
       | sed -e "s/OPEN_LIBERTY_WATCH_NAMESPACE/${WATCH_NAMESPACE}/" \
-      | kubectl apply -n ${OPERATOR_NAMESPACE} -f -
+      | oc apply -n ${OPERATOR_NAMESPACE} -f -
 ```
 
 ### Install the Cert Manager 
@@ -299,7 +299,7 @@ curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main
 The Cert Manager adds certifications and certification issuers as resource types to Kubernetes
 
 ```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.3/cert-manager.yaml
+oc apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
 ```
 
 ### Verify the OpenShift serverless operator is installed and ready
@@ -318,6 +318,62 @@ You should see the following output:
 >  oc apply -f serverless-subscription.yaml
 >```
 
+
+1. Install KNative; for example, the [Red Hat OpenShift Serverless operator](https://docs.openshift.com/serverless/1.29/install/install-serverless-operator.html)
+    1. Install [KNative Serving](https://docs.openshift.com/serverless/1.29/install/installing-knative-serving.html)
+        1. Operators } Installed Operators
+        1. Project = `knative-serving`
+        1. Red Hat OpenShift Serverless } Knative Serving
+        1. Create KnativeServing
+        1. Click `Create`
+        1. Wait for the `Ready` Condition in `Status`
+    1. Install [KNative Eventing](https://docs.openshift.com/serverless/1.29/install/installing-knative-eventing.html)
+        1. Operators } Installed Operators
+        1. Project = `knative-eventing`
+        1. Red Hat OpenShift Serverless } Knative Eventing
+        1. Create KnativeEventing
+        1. Click `Create`
+        1. Wait for the `Ready` Condition in `Status`
+    1. Install the [`KNativeKafka` broker](https://docs.openshift.com/serverless/1.29/install/installing-knative-eventing.html#serverless-install-kafka-odc_installing-knative-eventing)
+        1. Knative Kafka } Create KnativeKafka
+        1. channel } enabled; bootstrapServers } my-cluster-kafka-bootstrap.amq-streams-kafka.svc:9092
+        1. source } enabled
+        1. broker } enabled; defaultConfig } bootstrapServers } my-cluster-kafka-bootstrap.amq-streams-kafka.svc:9092
+        1. sink } enabled
+        1. Click `Create`
+        1. Wait for the `Ready` Condition in `Status`
+
+### Run the following commands to give your application the correct Service Account (SA) and Security Context Contraint (SCC) to run instantOn
+
+Create a service account for InstantOn:
+   ```bash
+   oc create serviceaccount instanton-sa
+   ```
+Create an InstantOn SecurityContextConstraints:
+   ```bash
+   oc apply -f instantonscc.yaml
+   ```
+Associate the InstantOn SecurityContextConstraints with the service account:
+   ```bash
+   oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa
+   ```
+
+### Edit the Knative permissions to allow to the ability to add Capabilities
+
+
+```bash
+oc edit knativeserving/knative-serving -n knative-serving
+```
+
+Under `spec`, add:
+```
+  config:
+    features:
+      kubernetes.containerspec-addcapabilities: enabled
+      kubernetes.podspec-securitycontext: enabled
+```
+`Save`
+
 ### Verify the Knative service is ready
 
 ```bash
@@ -328,33 +384,18 @@ Your output should match the following:
 
 ![ocp-knative](images/ocp-knative.png)
 
-### Edit the Knative permissions to allow to the ability to add Capabilities
-
-```bash
-kubectl -n knative-serving edit cm config-features -oyaml
-```
-
-Add in the following line just bellow the “data” tag at the top:
-```yaml
-kubernetes.containerspec-addcapabilities: enabled
-```
 
 > **IMPORTANT**: to save your change and exit the file, hit the escape key, then type `:x`. 
 
 ### Run the following commands to give your application the correct Service Account (SA) and Security Context Contraint (SCC) to run instantOn
 
-```bash
-oc create serviceaccount instanton-sa
-oc apply -f scc-cap-cr.yaml
-oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa
-```
 
 ## 5. Deploy the applications to OCP
 
 ### Deploy the base application
 
 ```bash
-kubectl apply -f deploy-without-instanton.yaml
+oc apply -f deploy-without-instanton.yaml
 ```
 
 ### Monitor the base application
