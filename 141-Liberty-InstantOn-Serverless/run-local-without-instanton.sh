@@ -1,4 +1,4 @@
-docker run \
+podman run \
   --name getting-started \
   --rm \
   -p 9080:9080 \
