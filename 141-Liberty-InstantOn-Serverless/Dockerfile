@@ -1,4 +1,4 @@
-FROM icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi
+FROM icr.io/appcafe/websphere-liberty:kernel-java21-openj9-ubi-minimal
 
 ARG VERSION=1.0
 ARG REVISION=SNAPSHOT
