@@ -40,7 +40,7 @@ After provisioning the InstantOn Lab VM and ensuring its readiness, utilize the 
 su
 ```
 
-Use the password specified in the InstantOn lab description.
+Use as root password: `IBMDem0s!`
 
 ### Clone the application from GitHub
 
@@ -82,7 +82,7 @@ Paste the command into your terminal window. You should receive a confirmation m
 
 ### Package the application
 
-First ensure that you are in the `Lab-InstantOn/techxchange-instanton-lab/finish` directory, then run `mvn package` to build the application.
+First ensure that you are in the `liberty-spgi-lab/141-Liberty-InstantOn-Serverless` directory, then run `mvn package` to build the application.
 
 ```bash
 mvn package
@@ -92,10 +92,7 @@ mvn package
 
 ```bash
 mv /usr/bin/docker /usr/bin/docker_backup
-```
-
-```bash
-mv /usr/bin/podman_backup /usr/bin/podman
+cp /usr/bin/podman.backup /usr/bin/podman
 ```
 
 ### Build the application image
@@ -103,13 +100,13 @@ mv /usr/bin/podman_backup /usr/bin/podman
 Run the provided script:
 
 ```bash
-./build-local-without-instanton.sh
+sudo ./build-local-without-instanton.sh
 ```
 
 Or type the following command:
 
 ```bash
-podman build -t dev.local/getting-started .
+sudo podman build -t dev.local/getting-started .
 ```
 
 > **NOTE**: The Dockerfile is using a slim version of the Java 21 Open Liberty UBI.
@@ -152,6 +149,12 @@ In order to convert this image to use InstantOn, modify the `Dockerfile` by addi
 RUN checkpoint.sh afterAppStart
 ```
 
+You can use this command: 
+
+```bash
+echo RUN checkpoint.sh afterAppStart >> Dockerfile
+```
+
 This command will perform the following actions:
 1. Run the application
 1. Take a checkpoint after the application code has loaded
@@ -171,13 +174,13 @@ Note that there are 2 checkpoint options:
 Run the provided script:
 
 ```bash
-./build-local-with-instanton.sh
+sudo ./build-local-with-instanton.sh
 ```
 
 Or type the following command: 
 
 ```bash
-podman build \
+sudo podman build \
   -t dev.local/getting-started-instanton \
   --cap-add=CHECKPOINT_RESTORE \
   --cap-add=SYS_PTRACE\
@@ -233,14 +236,15 @@ To stop the running container, press `CTRL+C` in the command-line session where 
 
 ### Create the namespace and set it as the default
 
-> **NOTE**: If you are working on a cluster that is shared with others, please ensure that you are using a unique namespace. We recommend using the format `instantonlab-` followed by your initials. For example, `instantonlab-rm`.
+> **NOTE**: If you are working on a cluster that is shared with others, please ensure that you are using a unique namespace. Your namespace is the provided username in the beginning of the lab, followed by `ns`. For example, `user1-ns`.
 
 ```bash
-export CURRENT_NS=instantonlab-[Your initial]
+export CURRENT_NS=user[User Number]-ns
 ```
 
+It should be the default project (and the only one that you have access), but ensure you are working in that namespace by executing:
+
 ```bash
-oc adm new-project $CURRENT_NS
 oc project $CURRENT_NS
 ```
 
