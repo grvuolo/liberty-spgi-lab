@@ -6,11 +6,16 @@ In order to complete all labs, different environmnets have been provisioned. Eac
 
 ## 1. Liberty Introduction
 
-Liberty Workshop environment - VMWare
+**Liberty Workshop environment - VMWare**
+
+VNC URL: provided by instructor
 
 ## 2. Liberty Collectives
 
-Enterprise-Deployment-Liberty-Environment
+**Enterprise-Deployment-Liberty-Environment**
+
+VNC URL: provided by instructor
+
 
 ## 3. Liberty on Containers
 
@@ -21,10 +26,21 @@ This labs will introduce you first to Contaneirs and then to OpenShfit, to final
 **133-Liberty-on-OpenShift**
 Liberty Container Deployment with CP4Apps on OpenShift
 
+VNC URL: provided by instructor
+
+
 ## 4. Liberty InstantOn
 
 This lab will rely on two different environments. The one from the previous Lab and a shared OpenShift Cluster due to version dependencies
 
-Liberty Container Deployment with CP4Apps on OpenShift
+**Liberty Container Deployment with CP4Apps on OpenShift**
 
-Shared OpenShift Cluster
+VNC URL: provided by instructor
+
+
+**Shared OpenShift Cluster:**
+https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+
+
+username: user[x]
+password: passw0rd
