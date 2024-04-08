@@ -61,8 +61,8 @@ A shared OpenShist cluster has been provisioned at the following URL: https://co
 
 go to `IBM Demo`
 
-username:
-password:
+username: user[x]
+password: passw0rd
 
 ### Login to the OpenShift CLI [IF NEEDED]
 
@@ -86,6 +86,16 @@ First ensure that you are in the `Lab-InstantOn/techxchange-instanton-lab/finish
 
 ```bash
 mvn package
+```
+
+### Change docker to podman
+
+```bash
+mv /usr/bin/docker /usr/bin/docker_backup
+```
+
+```bash
+mv /usr/bin/podman_backup /usr/bin/podman
 ```
 
 ### Build the application image
