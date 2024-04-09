@@ -1,5 +1,5 @@
 
-#Introduction to Labs
+# Introduction to Labs
 
 Follow this guide to complete the Hands-on Labs for Liberty
 
@@ -14,9 +14,9 @@ Discover the basics of WebSphere Liberty and how to start Develop on it.
 VNC URL: provided by instructor
 
 **Labs:**
-101-Liberty-Getting-Started
-102-Discovery-Liberty
-103-Liberty-devmode
+- [101-Liberty-Getting-Started](101-Liberty-Getting-Started/README.md)
+- [102-Discovery-Liberty](102-Discovery-Liberty/README.md)
+- [103-Liberty-devmode](103-Liberty-devmode-VSCode/README.md)
 
 ## 2. Liberty Collectives
 
@@ -27,9 +27,9 @@ Discover the Collective architecture for Liberty and how to provide dynamic load
 VNC URL: provided by instructor
 
 **Labs:**
-111-Liberty-Collectives
-112-Liberty-Dynamic-Routing
-113-Liberty-Zero-Migration
+- [111-Liberty-Collectives](111-Liberty-Collectives/README.md)
+- [112-Liberty-Dynamic-Routing](112-Liberty-Dynamic-Routing/README.md)
+- [113-Liberty-Zero-Migration](113-Liberty-Zero-Migration/README.md)
 
 ## 3. Liberty on Containers
 
@@ -45,9 +45,9 @@ Liberty Container Deployment with CP4Apps on OpenShift
 VNC URL: provided by instructor
 
 **Labs:**
-131-Intro-Containers
-132-Intro-OpenShift
-133-Liberty-on-OpenShift
+- [131-Intro-Containers](131-Intro-Containers/README.md)
+- [132-Intro-OpenShift](132-Intro-OpenShift/README.md)
+- [133-Liberty-on-OpenShift](133-Liberty-on-OpenShift/README.md)
 
 ## 4. Liberty InstantOn
 
@@ -59,14 +59,11 @@ This lab will rely on two different environments. The one from the previous Lab 
 
 VNC URL: provided by instructor
 
-
 **Shared OpenShift Cluster:**
 https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
-
 
 username: user[x]
 password: passw0rd
 
-
 **Labs:**
-141-Liberty-InstantOn-Serverless
+- [141-Liberty-InstantOn-Serverless](141-Liberty-InstantOn-Serverless/README.md)
