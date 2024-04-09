@@ -13,6 +13,11 @@ Discover the basics of WebSphere Liberty and how to start Develop on it.
 
 VNC URL: provided by instructor
 
+**Labs:**
+101-Liberty-Getting-Started
+102-Discovery-Liberty
+103-Liberty-devmode
+
 ## 2. Liberty Collectives
 
 Discover the Collective architecture for Liberty and how to provide dynamic load balancing and high availability. Finally, experience the zero-migration architecture.
@@ -21,6 +26,10 @@ Discover the Collective architecture for Liberty and how to provide dynamic load
 
 VNC URL: provided by instructor
 
+**Labs:**
+111-Liberty-Collectives
+112-Liberty-Dynamic-Routing
+113-Liberty-Zero-Migration
 
 ## 3. Liberty on Containers
 
@@ -35,6 +44,10 @@ Liberty Container Deployment with CP4Apps on OpenShift
 
 VNC URL: provided by instructor
 
+**Labs:**
+131-Intro-Containers
+132-Intro-OpenShift
+133-Liberty-on-OpenShift
 
 ## 4. Liberty InstantOn
 
@@ -53,3 +66,7 @@ https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.co
 
 username: user[x]
 password: passw0rd
+
+
+**Labs:**
+141-Liberty-InstantOn-Serverless
