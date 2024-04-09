@@ -236,8 +236,6 @@ To stop the running container, press `CTRL+C` in the command-line session where 
 
 ### Create the namespace and set it as the default
 
-> **NOTE**: If you are working on a cluster that is shared with others, please ensure that you are using a unique namespace. Your namespace is the provided username in the beginning of the lab, followed by `ns`. For example, `user1-ns`.
-
 ```bash
 export CURRENT_NS=user[User Number]-ns
 ```
