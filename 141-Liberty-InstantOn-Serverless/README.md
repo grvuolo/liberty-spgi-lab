@@ -233,20 +233,21 @@ To stop the running container, press `CTRL+C` in the command-line session where 
 
 ### Create the namespace and set it as the default
 
-> **NOTE**: If you are working on a cluster that is shared with others, please ensure that you are using a unique namespace. We recommend using the format `instantonlab-` followed by your initials. For example, `instantonlab-rm`.
+> **NOTE**: If you are working on a cluster that is shared with others, a namespace has already been created for you if your user is *user1* then you namespaces is *instantonlab-1*. Change [Your initial] accordingly.
 
 ```bash
 export CURRENT_NS=instantonlab-[Your initial]
 ```
+> **NOTE**: your namespace has already been created
 
 ```bash
 oc adm new-project $CURRENT_NS
 oc project $CURRENT_NS
 ```
 
-### Enable the default registry route in OpenShift to push images to its internal repos
+### Enable the default registry route in OpenShift to push images to its internal repos [not necessary when using a shared OpenShift]
 
-> **NOTE**: You will not need to perform this step if you completed the Semeru Cloud Compiler lab.
+> **NOTE**: You will not need to perform this step as the registry is already exposed
 
 ```bash
 oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
@@ -254,7 +255,8 @@ oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"
 
 ### Log Podman into the OpenShift registry server [IF NEEDED]
 
-> **NOTE**: You will not need to perform the following steps if you completed the Semeru Cloud Compiler lab.
+
+> **NOTE**: this step is not necessary as the secret is already provided by the instructor and access to registry is available with the login to OCP
 
 First we need to get the `TOKEN` that we can use to get the password for the registry.
 
@@ -265,7 +267,7 @@ oc get secrets -n openshift-image-registry | grep cluster-image-registry-operato
 Take note of the `TOKEN` value, as you need to substitute it in the following command that sets the registry password.
 
 ```bash
-export OCP_REGISTRY_PASSWORD=$(oc get secret -n openshift-image-registry cluster-image-registry-operator-token-<INPUT_TOKEN> -o=jsonpath='{.data.token}{"\n"}' | base64 -d)
+export OCP_REGISTRY_PASSWORD=$(oc get secret -n openshift-image-registry cluster-image-registry-operator-token-6d862 -o=jsonpath='{.data.token}{"\n"}' | base64 -d)
 ```
 
 Now set the OpenShift registry host value.
@@ -308,6 +310,9 @@ oc get imagestream
 
 ## 4. Enhance the OpenShift Cloud Platform (OCP) environment
 
+> **NOTE**: this step is not necessary as open liberty operator is available. Trust the instructor
+
+
 Perform the following steps to enhance OCP to better manage OCP services, such as Knative, which provides serverless or scale-to-zero functionality. 
 
 The Liberty Operator provides resources and configurations that make it easier to run Open Liberty applications on OCP. To verify if the Liberty Operator is available on the server side, please use the following command:
@@ -321,7 +326,10 @@ You should see the following output:
 ![verify-liberty-operator](images/verify-liberty-operator.png)
 
 
-### Apply the Liberty Operator to your namespace
+### Apply the Liberty Operator to your namespace [not necessary when using a shared OpenShift]
+
+> **NOTE**: this step is not necessary as open liberty operator is available to your namespace already. Trust the instructor
+
 
 ```bash
 OPERATOR_NAMESPACE=instantonlab-[Your initial]
@@ -332,11 +340,11 @@ curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main
       | oc apply -n ${OPERATOR_NAMESPACE} -f -
 ```
 
-### Verify the installation of the Cert Manager 
+### Verify the installation of the Cert Manager [not necessary when using a shared OpenShift]
 
 The Cert Manager adds certifications and certification issuers as resource types to Kubernetes
 
-> **NOTE**: The Cert Manager should have been set up by your instructor. If the output does not match the expected result or if there are any other issues, please contact your instructor.
+> **NOTE**: this step is not necessary as open liberty operator is available to your namespace already. Trust the instructor
 
 ```bash
 oc get deployments -n cert-manager
@@ -359,7 +367,7 @@ You should see the following output:
 
 ![ocp-serverless](images/ocp-serverless.png)
 
-### Verify the Knative service is ready
+### Verify the Knative service is ready [not necessary when using a shared OpenShift]
 
 ```bash
 oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'
@@ -374,7 +382,7 @@ If the Knative service has been setup and added to the capability, your output s
 > To learning more about setup Knative service please refer to our [knative setup instruction](https://github.com/rhagarty/techxchange-knative-setup)
 
 
-### Verify the Knative containerspec-addcapabilities feature is enabled
+### Verify the Knative containerspec-addcapabilities feature is enabled [not necessary when using a shared OpenShift]
 
 To confirm whether the `containerspec-addcapabilities` is enabled, you can inspect the current configuration of `config-features` by executing the command 
 > ```bash 
@@ -384,13 +392,13 @@ To confirm whether the `containerspec-addcapabilities` is enabled, you can inspe
 > **IMPORTANT**: If the command returns true, it indicates that the Knative 'containerspec-addcapabilities' feature is already enabled. Please skip the step regarding editing Knative permissions. However, if it returns false, please contact your instructor regarding this. 
 In a production scenario, you may be required to enable `containerspec-addcapabilities` manually, please refer to our [knative setup instruction](https://github.com/rhagarty/techxchange-knative-setup) for further info. 
 
-### Run the following commands to give applications the correct Service Account (SA) and Security Context Contraint (SCC) to run instantOn
+### Run the following commands to give applications the correct Service Account (SA) and Security Context Contraint (SCC) to run instantOn [not necessary when using a shared OpenShift]
 
-> ```bash 
-> oc create serviceaccount instanton-sa-$CURRENT_NS
-> oc apply -f scc-cap-cr.yaml
-> oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa-$CURRENT_NS
-> ```
+```bash 
+oc create serviceaccount instanton-sa-$CURRENT_NS
+oc apply -f scc-cap-cr.yaml
+oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa-$CURRENT_NS
+```
 
 ## 5. Deploy the applications to OCP
 
