@@ -1,3 +1,4 @@
+
 #Introduction to Labs
 
 Follow this guide to complete the Hands-on Labs for Liberty
