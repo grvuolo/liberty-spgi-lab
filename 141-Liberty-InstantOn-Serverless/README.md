@@ -239,7 +239,7 @@ To stop the running container, press `CTRL+C` in the command-line session where 
 > **NOTE**: If you are working on a cluster that is shared with others, a namespace has already been created for you, if your user is *user1* then your namespaces is *instantonlab-1*. Change [Your initial] accordingly.
 
 ```bash
-export CURRENT_NS=user[User Number]-ns
+export CURRENT_NS=instantonlab-[Your initial]
 ```
 > **NOTE**: your namespace has already been created
 

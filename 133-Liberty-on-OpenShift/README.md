@@ -1246,8 +1246,10 @@ ___
 
 # Optional Sections: 
 
+
 <details>
- <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 3.4 GitOps and configuration management
+ <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 3.4 GitOps and configuration man
+agement
  </summary>
 
 <br/>
