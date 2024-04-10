@@ -8,7 +8,7 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
-
+[Return to main labs page](../README.md)
 
 ## **Introduction**
 
@@ -779,3 +779,7 @@ without requiring Liberty ND licenses. It also eliminates time-consuming plug-in
 This can also be very useful in topologies where servers or applications are regularly being added, changed, or removed.
 
 ![](./images/media/image12.png)
+
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

@@ -8,6 +8,8 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
+[Return to main labs page](../README.md)
+
 ## Overview
 This lab provides fundamental hands-on experience with modernizing existing Java applications to WebSphere Liberty, deployed into a container platform, such as Red Hat OpenShift. 
 
@@ -1246,6 +1248,8 @@ ___
 
 # Optional Sections: 
 
+{::options parse_block_html="true" /}
+
 <details>
  <summary><b><font color="dodgerblue">Click to expand:</font></b> Section 3.4 GitOps and configuration management
  </summary>
@@ -1583,4 +1587,8 @@ This workspace has only a single application name `plantsbywebsphereee6.ear`. It
 
 </details>
 
+{::options parse_block_html="false" /}
 
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

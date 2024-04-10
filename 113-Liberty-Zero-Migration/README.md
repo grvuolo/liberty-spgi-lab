@@ -8,7 +8,7 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
-
+[Return to main labs page](../README.md)
 
 ## Introduction to the Lab
 
@@ -704,3 +704,7 @@ common practices described in the lab.
   - Use Liberty Admin Center to “**Ripple Start**” the new Liberty
     Servers
   - Test the application after a zero-migration upgrade of Liberty
+
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

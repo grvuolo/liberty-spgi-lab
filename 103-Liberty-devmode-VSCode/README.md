@@ -1,5 +1,7 @@
 # Lab: Using Open Liberty Tools with VS Code
 
+[Return to main labs page](../README.md)
+
 ## Objectives
 
 In this exercise, you will learn how developers can use Liberty in “dev” mode with VS Code Integrated Development Environment for achieving efficient iterative develop, test, debug cycle when developing Java based applications and microservices.
@@ -972,3 +974,5 @@ automatically compiled and deployed to your running server, making it
 easy to iterate on your changes.
 
 **===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

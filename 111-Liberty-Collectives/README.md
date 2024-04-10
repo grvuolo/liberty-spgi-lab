@@ -8,6 +8,7 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
+[Return to main labs page](../README.md)
 
 ## **Introduction to the Lab**
 
@@ -982,3 +983,7 @@ these key Liberty administrative tasks:</span>**
     individual Liberty servers
 
 ![](./images/media/image2.png)
+
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)
