@@ -1,5 +1,7 @@
 # Hands-on Open Liberty InstantOn Lab
 
+[Return to main labs page](../README.md)
+
 In this lab, you will get to build a simple Open Liberty application and run it in a container, which you will then get to deploy in multiple ways - locally and on Kubernetes.
 
 The application will be run in 2 modes: standard and with InstantOn. You will get to verify the significant improvement in start time that InstantOn provides.
@@ -517,3 +519,7 @@ No resources found in instantonlab-[your initial] namespace.
 ```
 
 Please wait a few more minutes and then try again. It should return the correct output.
+
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

@@ -8,7 +8,8 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
-<a name="Background"> </a>
+[Return to main labs page](../README.md)
+
 ## Background
 
 If you are expecting a lab about `containers and docker`, you are at the right place.
@@ -914,3 +915,7 @@ Let's assume that the first version we will build for our environment is 1.3.5. 
 <br/>
 
 Congratulations! You have completed the **Introduction to Containers** lab.
+
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)

@@ -1,5 +1,6 @@
 # Discover Liberty
 
+[Return to main labs page](../README.md)
 
 In this lab, you will explore the Liberty server configuration, installing applications onto Liberty, updating the server
 configurations, and updating an application.
@@ -1299,3 +1300,5 @@ need to do this to analyze problems in early server start or
 configuration processing.
 
 **=== END OF LAB ===**
+
+[Return to main labs page](../README.md)

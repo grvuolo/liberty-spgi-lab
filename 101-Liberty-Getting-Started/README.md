@@ -1,5 +1,6 @@
 # Liberty: Getting Started
 
+[Return to main labs page](../README.md)
 
 ## Setup the Liberty environment
 
@@ -645,3 +646,5 @@ First, create a Liberty server using the integrated tools.
 3. Close any open **Terminal** windows
 
 **=== END OF LAB ===**
+
+[Return to main labs page](../README.md)

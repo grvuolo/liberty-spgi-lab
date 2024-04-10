@@ -8,6 +8,8 @@
 
 Need support? Contact **Kevin Postreich, Yi Tang**
 
+[Return to main labs page](../README.md)
+
 ## Introduction 
 
 In this lab, we will introduce you to the basics of container Orchestration using Openshift. We will
@@ -15,8 +17,6 @@ In this lab, we will introduce you to the basics of container Orchestration usin
 - Perform basic navigation using the web console
 - Deploy the example `httpd` image through the web console.
 - Deploy the example `httpd` image through the command line.
-
-
 
 ## Accessing the environment
 
@@ -1074,4 +1074,6 @@ Some resources are global (not in a namespace), while others are scoped to a `na
 
 Congratulations, you have deployed your first application to Openshift via the command line.
 
-END OF LAB
+**===== END OF LAB =====**
+
+[Return to main labs page](../README.md)
