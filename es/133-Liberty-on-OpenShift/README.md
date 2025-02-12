@@ -1231,8 +1231,8 @@ En este laboratorio, aprendió a implementar aplicaciones en WebSphere Liberty u
 Exploraste las opciones de implementación:
 
 - Liberty, que se ejecuta localmente
-- Liberty as an image running in local container
-- Liberty as an image running in OpenShift.
+- Liberty como imagen que se ejecuta en un contenedor local
+- Liberty como imagen ejecutándose en OpenShift.
 
 Aprendió cómo configurar fácilmente implementaciones en OpenShift para permitir que se implemente la misma imagen inmutable para diferentes configuraciones, como implementaciones de entornos "de desarrollo" y "de prueba".
 
