@@ -906,8 +906,7 @@ El comando `oc` ya está instalado en la terminal de su VM.
     cat Route.yaml
     ```
 
-    Tenga en cuenta que la ruta apunta al **ejemplo** Servicio
-     Producción:
+    Tenga en cuenta que la ruta apunta al **ejemplo** Servicio Producción:
 
     ```yaml
     apiVersion: route.openshift.io/v1

@@ -1,4 +1,4 @@
-# Libertad: Primeros pasos
+# Liberty: Primeros pasos
 
 [Regresar a la página principal de laboratorios](../README.md)
 

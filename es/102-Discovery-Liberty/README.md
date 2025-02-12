@@ -1,4 +1,4 @@
-# Descubra la libertad
+# Descubra Liberty
 
 [Regresar a la página principal de laboratorios](../README.md)
 
