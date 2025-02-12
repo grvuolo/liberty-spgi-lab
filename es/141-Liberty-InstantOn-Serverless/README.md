@@ -331,7 +331,7 @@ oc get crd openlibertyapplications.apps.openliberty.io openlibertydumps.apps.ope
 
 Deberías ver el siguiente resultado:
 
-![verificar-operador-libertad](images/verify-liberty-operator.png)
+![verificar-liberty-operator](images/verify-liberty-operator.png)
 
 ### Aplique el operador Liberty a su espacio de nombres [no es necesario cuando se utiliza un OpenShift compartido]
 

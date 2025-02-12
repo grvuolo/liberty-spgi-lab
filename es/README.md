@@ -4,7 +4,7 @@ Siga esta guía para completar los laboratorios prácticos para Liberty
 
 Para poder completar todos los laboratorios, se han previsto diferentes entornos. Cada entorno es independiente de los demás, por lo que depende de las habilidades y el interés, pero sugerimos el siguiente orden:
 
-## 1. Introducción a la libertad
+## 1. Introducción a Liberty
 
 Descubra los conceptos básicos de WebSphere Liberty y cómo comenzar a desarrollar en él.
 
@@ -18,7 +18,7 @@ URL de VNC: proporcionada por el instructor
 - [102-Discovery-Liberty](102-Discovery-Liberty/README.md)
 - [103-Liberty-devmode-VSCode](103-Liberty-devmode-VSCode/README.md)
 
-## 2. Colectivos de Libertad
+## 2. Liberty Collectives
 
 Descubra la arquitectura colectiva para Liberty y cómo proporcionar equilibrio de carga dinámico y alta disponibilidad. Por último, experimente la arquitectura de migración cero.
 
@@ -32,7 +32,7 @@ URL de VNC: proporcionada por el instructor
 - [112-Liberty-Dynamic-Routing](112-Liberty-Dynamic-Routing/README.md)
 - [113-Liberty-Zero-Migration](113-Liberty-Zero-Migration/README.md)
 
-## 3. Libertad en los contenedores
+## 3. Liberty en contenedores
 
 Descubra cómo trasladar Liberty de una máquina virtual a un entorno basado en contenedores.
 
