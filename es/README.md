@@ -16,7 +16,7 @@ URL de VNC: proporcionada por el instructor
 
 - [101-Liberty-Getting-Started](101-Liberty-Getting-Started/README.md)
 - [102-Discovery-Liberty](102-Discovery-Liberty/README.md)
-- [103-Liberty-devmode](103-Liberty-devmode-VSCode/README.md)
+- [103-Liberty-devmode-VSCode](103-Liberty-devmode-VSCode/README.md)
 
 ## 2. Colectivos de Libertad
 
