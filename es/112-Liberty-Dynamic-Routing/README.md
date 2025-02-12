@@ -165,7 +165,7 @@ Iniciará y detendrá miembros en el colectivo para experimentar el comportamien
 
 - Verificar el servidor HTTP
 
-- Crea un Colectivo de Libertad **(Si no completaste Lab_1020)**
+- Crea un Liberty Collective **(Si no completaste Lab_1020)**
 
 - Configurar enrutamiento dinámico
 
@@ -223,7 +223,7 @@ En esta sección, se asegura de que IBM HTTP Server se inicie y se ejecute como 
     /opt/IBM/HTTPServer/bin/apachectl stop
     ```
 
-## **Parte 2: Asegurarse de que se implemente el Colectivo Libertad**
+## **Parte 2: Asegurarse de que se implemente el Liberty Collective**
 
 El enrutamiento dinámico de Liberty requiere un colectivo Liberty y los servidores de aplicaciones que alojan las aplicaciones utilizadas en los laboratorios deben ser miembros del colectivo Liberty. El módulo de aprendizaje para crear el colectivo Liberty es “Lab_1020”.
 

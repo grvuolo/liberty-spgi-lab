@@ -22,7 +22,7 @@ Después de completar el laboratorio, deberías poder apreciar lo sencillo que e
 
 - Crear paquetes de servidor Liberty
 
-- Crear un controlador colectivo de libertad
+- Crear un Liberty Collective Controller
 
 - Implementar paquetes de Liberty Server en el colectivo
 
@@ -40,7 +40,7 @@ Después de completar el laboratorio, deberías poder apreciar lo sencillo que e
 
 Utilizará los scripts de shell de Linux proporcionados para el laboratorio para crear paquetes de servidor Liberty, construir un Liberty Collective que abarque dos máquinas virtuales host e implementar el paquete de servidor en ambas máquinas virtuales host.
 
-El Colectivo Libertad que crearás se ilustra a continuación:
+El Liberty Collective que crearás se ilustra a continuación:
 
 ![](./images/media/image2.png)
 
@@ -158,7 +158,7 @@ En este laboratorio, implementará Liberty y aplicaciones de muestra en un Liber
 
     - Construya los paquetes de servidor para su implementación en el colectivo
 
-    - Crear el Colectivo Libertad
+    - Crear un Liberty Collective Controller
 
     - Implementar los paquetes del servidor en el colectivo
 
@@ -386,7 +386,7 @@ Ahora que tiene un paquete de servidor, se puede implementar en hosts locales o 
 
 En las siguientes secciones del laboratorio, continuará con la práctica recomendada de usar la automatización para crear un Liberty Collective e implementar el paquete de servidor en dos hosts (VM), y agregar los servidores implementados al Liberty Collective, donde el colectivo puede administrar los servidores de manera centralizada.
 
-## **Parte 3: Crear un controlador colectivo de libertad**
+## **Parte 3: Crear un Liberty Collective Controller**
 
 Un **Liberty Collective** es un conjunto de servidores Liberty en un único dominio de administración.
 
@@ -496,7 +496,7 @@ El script “ **createController.sh** ” proporciona las siguientes capacidades
 
     - Crear el servidor Liberty **de CollectiveController**
 
-    - Crear un colectivo de libertad
+    - Crear un Liberty Collective Controller
 
     - Aplicar modificaciones de configuración del servidor, actualizando los puertos para evitar posibles conflictos de puertos
 
@@ -580,7 +580,7 @@ Utilice el script de automatización para implementar el servidor Liberty desde 
 
     > - Cambie el nombre del servidor predeterminado a “appServer1”
 
-    > - Únete al servidor de la libertad al colectivo
+    > - Une el servidor Liberty al colectivo
 
     ```
     ~/liberty_admin_pot/lab-scripts/addMember.sh -n appServer1 -v 22.0.0.8 -p 9081:9441 -h server0.gym.lan
@@ -860,7 +860,7 @@ En este laboratorio, implementó aplicaciones Liberty en un colectivo, siguiendo
 
 - Crear paquetes de servidor Liberty
 
-- Crear un controlador colectivo de libertad
+- Crear un Liberty Collective Controller
 
 - Implementar paquetes de Liberty Server como miembros colectivos
 

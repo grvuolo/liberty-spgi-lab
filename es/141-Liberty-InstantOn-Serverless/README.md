@@ -335,7 +335,7 @@ Deberías ver el siguiente resultado:
 
 ### Aplique el operador Liberty a su espacio de nombres [no es necesario cuando se utiliza un OpenShift compartido]
 
-> **NOTA** : este paso no es necesario ya que el operador de libertad abierta ya está disponible para su espacio de nombres. Confíe en el instructor
+> **NOTA** : este paso no es necesario ya que el operador de Open Liberty ya está disponible para su namespace. Confíe en el instructor
 
 ```bash
 OPERATOR_NAMESPACE=instantonlab-[Your initial]
@@ -350,7 +350,7 @@ curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main
 
 El administrador de certificados agrega certificaciones y emisores de certificaciones como tipos de recursos a Kubernetes
 
-> **NOTA** : este paso no es necesario ya que el operador de libertad abierta ya está disponible para su espacio de nombres. Confíe en el instructor
+> **NOTA** : este paso no es necesario ya que el operador de Open Liberty ya está disponible para su espacio de nombres. Confíe en el instructor
 
 ```bash
 oc get deployments -n cert-manager
