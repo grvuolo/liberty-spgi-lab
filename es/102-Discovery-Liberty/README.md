@@ -745,7 +745,6 @@ Ahora, pruébalo.
 
 ### Implementar una aplicación en el directorio dropins
 
-###
 
 <table>
 <tbody>

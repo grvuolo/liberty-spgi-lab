@@ -1010,7 +1010,6 @@ Some resources are global (not in a namespace), while others are scoped to a `na
 
      **Note:** The above edits the copy that is stored in Openshift. You may also edit your local copy of `Deployment.yaml` and re-apply it.
 
-      <br/>
 
 
 6. Edit the `Deployment.yaml` on the VM, and re-apply the updates

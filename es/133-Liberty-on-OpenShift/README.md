@@ -1100,7 +1100,7 @@ El directorio **`overlays/dev`** contiene una configuración específica y únic
     gedit base/application-cr.yaml
     ```
 
-    a. En este laboratorio, optamos por anular la imagen de la aplicación, ya que enviaremos la misma imagen inmutable a diferentes espacios de nombres en OpenShift.
+    a. En este laboratorio, optamos por anular la imagen de la aplicación, ya que enviaremos la misma imagen inmutable a diferentes namespaces en OpenShift.
 
     Por lo tanto, siguiendo las reglas de Kustomize, la definición **de applicationImage** en application-cr.yaml está “en blanco”. Se reemplaza en overlays/dev.
 

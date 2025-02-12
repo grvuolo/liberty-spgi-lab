@@ -745,6 +745,10 @@ En este escenario, establecerá un punto de interrupción y depurará el código
      a. En la vista del explorador de VS Code, expanda **INICIO** -&gt; **src** -&gt; **main** -&gt; **java / io / openliberty / sample / system**
 
      b. Haga clic en **SystemLivenessCheck.java** para abrirlo en el editor.
+        
+    ![](./images/media/image58.png)
+
+    <br/>
 
 2. Establezca un punto de interrupción en el código donde se establece la variable **MemoryMaxBean**
 
@@ -753,6 +757,11 @@ En este escenario, establecerá un punto de interrupción y depurará el código
      **MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();**
 
      b. **Haga clic con el botón izquierdo del ratón** en el lado izquierdo del número de línea (31 en la captura de pantalla) para establecer un punto de interrupción. Aparecerá un punto rojo que indica que el punto de interrupción está establecido.
+
+        
+    ![](./images/media/image59.png)
+
+    <br/>
 
 3. Cree una nueva **configuración de Java Attach** y especifique el puerto de depuración **7777**
 
@@ -773,6 +782,10 @@ En este escenario, establecerá un punto de interrupción y depurará el código
      d. Se agrega una nueva configuración al archivo launch.json, que incluye un parámetro “ **port”** para adjuntar el depurador para Open Liberty.
 
      **Nota:** Open Liberty está configurado para utilizar el puerto de depuración 7777 de forma predeterminada.
+        
+    ![](./images/media/image63.png)
+
+    <br/>
 
 4. Cambie el parámetro “puerto” a 7777
 
@@ -807,6 +820,10 @@ En este escenario, establecerá un punto de interrupción y depurará el código
     ![](./images/media/image69.png)
 
      Ahora el depurador está conectado y la PILA DE LLAMADAS y los PUNTOS DE INTERRUPCIÓN se muestran en la perspectiva Depuración, como se ilustra a continuación:
+    
+    ![](./images/media/image70.png)
+
+    <br/>
 
 7. Desde el navegador web de la máquina virtual, ejecute el punto de conexión **/health** para ver el estado de la aplicación. La aplicación se detendrá en el punto de interrupción del código SystemLivenessCheck.java.
 
@@ -816,11 +833,23 @@ En este escenario, establecerá un punto de interrupción y depurará el código
 
     En la perspectiva del depurador de VS Code, la aplicación se detuvo en el punto de interrupción establecido en SystemLivenessCheck.java, como se ilustra a continuación.
 
+    ![](./images/media/image71.png)
+
+    <br/>
+
 8. Ahora puedes utilizar las acciones “Pasar por encima”, “Pasar dentro”, “Pasar fuera”, “Ejecutar” o “Desconectar”.
 
      a. Haga clic en “ **Pasar por encima** ” para ejecutar la línea de código existente y pasar a la siguiente línea de código en la aplicación.
+    
+    ![](./images/media/image72.png)
+
+    <br/>
 
 9. Cuando haya terminado de recorrer el depurador y explorar las variables locales, haga clic en el ícono " **Desconectar** " para desconectar el depurador.
+    
+    ![](./images/media/image73.png)
+
+    <br/>
 
 10. Utilice el panel de desarrollo de Liberty para **DETENER** el servidor Liberty en modo de desarrollo
 
@@ -831,12 +860,16 @@ En este escenario, establecerá un punto de interrupción y depurará el código
      c. Haga clic con el botón derecho del ratón en la **guía de inicio** de Liberty Server
 
      d. Seleccione **Detener** en el menú para detener el servidor.
+   
+    ![](./images/media/image74.png)
 
-    ng" alt="" datos-md-type="imagen"&gt;
+    <br/>
 
 11. **Salir de** la interfaz de usuario de VS Code
 
      a. Seleccione **Archivo &gt; Salir** en el menú principal de VS Code para salir de la interfaz de usuario.
+
+     <br>
 
 12. **Cierre** todas las ventanas **de terminal** y las pestañas **del navegador** abiertas
 

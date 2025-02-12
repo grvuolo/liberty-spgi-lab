@@ -262,7 +262,7 @@ Los artefactos típicos que necesitarás para ejecutar una aplicación en Opensh
         - El tipo es `Deployment`
     - Los `metadata` especifican los datos necesarios para el tiempo de ejecución:
         - El nombre de esta instancia es `example`
-        - El espacio de nombres donde se ejecuta el recurso es `myproject`
+        - El namespace donde se ejecuta el recurso es `myproject`
         - Aunque no se muestran aquí, se incluyen todas las etiquetas asociadas con el recurso. Veremos el uso de las etiquetas más adelante.
     - La sección `spec` define los detalles específicos de este tipo de recurso:
         - El `selector` define los detalles de los `pods` que administrará esta `deployment` . El atributo `matchLabels` con el valor `app: httpd` significa que esta instancia `deployment` buscará y administrará todos los pods cuyas etiquetas contengan `app: httpd` .
@@ -585,7 +585,7 @@ El comando `oc` ya está instalado en la terminal de su VM.
 
 1. Utilice `oc api-resources` para enumerar todos los tipos de recursos disponibles.
 
-    Tenga en cuenta que los recursos en Openshift tienen un `group` , `version` y `kind` . Algunos recursos son globales (no están en un espacio de nombres), mientras que otros están limitados a un `namespace` .
+    Tenga en cuenta que los recursos en Openshift tienen un `group` , `version` y `kind` . Algunos recursos son globales (no están en un namespace), mientras que otros están limitados a un `namespace` .
 
     Muchos recursos también tienen nombres cortos para ahorrar tiempo escribiendo al utilizar la herramienta de línea de comandos.
 
@@ -636,7 +636,7 @@ El comando `oc` ya está instalado en la terminal de su VM.
     ...
     ```
 
-3. Enumere todos los pods dentro de un espacio de nombres: `oc get pods -n myproject`
+3. Enumere todos los pods dentro de un namespace: `oc get pods -n myproject`
 
     ```
     NAME                       READY   STATUS    RESTARTS   AGE
@@ -858,7 +858,7 @@ El comando `oc` ya está instalado en la terminal de su VM.
 
     **Nota:** `\<pod name\>` es el nombre de los pods del comando `oc get pods` en el paso anterior.
 
-7. Eche un vistazo a `Service.yaml` y observe que es para el espacio de nombres `project1` :
+7. Eche un vistazo a `Service.yaml` y observe que es para el namespace `project1` :
 
     ```
     clear
@@ -884,7 +884,7 @@ El comando `oc` ya está instalado en la terminal de su VM.
       type: ClusterIP
     ```
 
-    Tenga en cuenta que el **selector** está configurado en **app: httd** , lo que significa que el servicio cargará los pods de equilibrio con la etiqueta `app: httpd` dentro del espacio de nombres `project1` :
+    Tenga en cuenta que el **selector** está configurado en **app: httd** , lo que significa que el servicio cargará los pods de equilibrio con la etiqueta `app: httpd` dentro del namespace `project1` :
 
 8. Crear el servicio.
 
