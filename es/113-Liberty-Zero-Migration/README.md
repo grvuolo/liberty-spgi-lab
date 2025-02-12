@@ -163,7 +163,7 @@ Este laboratorio requiere artefactos almacenados en un repositorio de GitHub. Ej
     chmod -R 755 ./
     ```
 
-## **Parte 2: Asegurarse de que se implemente el Colectivo Libertad**
+## **Parte 2: Asegurarse de que se implemente el Liberty Collective**
 
 El enrutamiento dinámico de Liberty requiere un colectivo Liberty y los servidores de aplicaciones que alojan las aplicaciones utilizadas en los laboratorios deben ser miembros del colectivo Liberty. El módulo de aprendizaje para crear el colectivo Liberty es “Lab_1020”.
 
