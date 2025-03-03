@@ -9,7 +9,7 @@ In the initial setup of Liberty, you will install Liberty using the
 start it, and deploy a simple Java EE application to the server to test
 the Liberty server runtime.
 
-You will use am Ubuntu Linux VM that has been prepared for the Liberty
+You will use an Ubuntu Linux VM that has been prepared for the Liberty
 labs and includes the following:
 
   - The **Liberty** package has been downloaded to

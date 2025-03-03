@@ -168,7 +168,7 @@ command line.
     
     c.  When the Eclipse launcher prompts you to select a workspace, enter the following directory. Then click the **Launch** button.
 
-        /home/ibmdemo/Student/labs/lab2/workspace 
+        /home/ibmdemo/Student/labs/lab2/workspace
 
     ![](./images/media/image14.png)
 
