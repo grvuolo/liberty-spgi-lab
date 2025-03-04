@@ -60,7 +60,7 @@ This lab will rely on two different environments. The one from the previous Lab 
 VNC URL: provided by instructor
 
 **Shared OpenShift Cluster:**
-https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+https://console-openshift-console.apps.67a3346aadf42b5f8ef28cdc.eu1.techzone.ibm.com/
 
 username: user[x]
 password: passw0rd
