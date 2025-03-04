@@ -1170,7 +1170,7 @@ En esta sección, echará un vistazo al **operador WebSphere Liberty** en la con
 
     ![Un círculo verde con texto Descripción generado automáticamente](./images/media/image87.png)
 
-    b. Verá la aplicación **plantsbywebsphereee6** incluida en el espacio de nombres 'dev'
+    b. Verá la aplicación **plantsbywebsphereee6** incluida en el namespace 'dev'
 
     b. Haga clic en el enlace llamado **`plantsbywebsphereee6`** debajo de la columna **Nombre**
 

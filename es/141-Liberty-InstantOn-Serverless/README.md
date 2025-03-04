@@ -250,17 +250,17 @@ Para detener el contenedor en ejecución, presione `CTRL+C` en la sesión de lí
 
 ## 3. Inserte las imágenes en el registro de OpenShift
 
-### Crea el espacio de nombres y configúralo como predeterminado
+### Crea el namespace y configúralo como predeterminado
 
-> **NOTA** : Si está trabajando en un clúster compartido con otros, ya se ha creado un espacio de nombres para usted. Si su usuario es *user1* , entonces su espacio de nombres será *instantonlab-1* . Cambie [Su inicial] según corresponda.
+> **NOTA** : Si está trabajando en un clúster compartido con otros, ya se ha creado un namespace para usted. Si su usuario es *user1* , entonces su namespace será *instantonlab-1* . Cambie [Su inicial] según corresponda.
 
 ```bash
 export CURRENT_NS=user[User Number]-ns
 ```
 
-> **NOTA** : su espacio de nombres ya ha sido creado
+> **NOTA** : su namespace ya ha sido creado
 
-Debería ser el proyecto predeterminado (y el único al que tiene acceso), pero asegúrese de estar trabajando en ese espacio de nombres ejecutando:
+Debería ser el proyecto predeterminado (y el único al que tiene acceso), pero asegúrese de estar trabajando en ese namespace ejecutando:
 
 ```bash
 oc project $CURRENT_NS
@@ -345,7 +345,7 @@ Deberías ver el siguiente resultado:
 
 ![verificar-liberty-operator](images/verify-liberty-operator.png)
 
-### Aplique el operador Liberty a su espacio de nombres [no es necesario cuando se utiliza un OpenShift compartido]
+### Aplique el operador Liberty a su namespace [no es necesario cuando se utiliza un OpenShift compartido]
 
 > **NOTA** : este paso no es necesario ya que el operador de Open Liberty ya está disponible para su namespace. Confíe en el instructor
 
@@ -362,7 +362,7 @@ curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main
 
 El administrador de certificados agrega certificaciones y emisores de certificaciones como tipos de recursos a Kubernetes
 
-> **NOTA** : este paso no es necesario ya que el operador de Open Liberty ya está disponible para su espacio de nombres. Confíe en el instructor
+> **NOTA** : este paso no es necesario ya que el operador de Open Liberty ya está disponible para su namespace. Confíe en el instructor
 
 ```bash
 oc get deployments -n cert-manager
@@ -418,9 +418,9 @@ oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa-$CURRENT_NS
 
 ## 5. Implementar las aplicaciones en OCP
 
-### Actualizar el espacio de nombres en los archivos YAML de implementación
+### Actualizar el namespace en los archivos YAML de implementación
 
-> **NOTA** : Ejecute el siguiente comando para activar el script para actualizar los archivos YAML necesarios con el espacio de nombre del proyecto que configuró previamente (CURRENT_NS)
+> **NOTA** : Ejecute el siguiente comando para activar el script para actualizar los archivos YAML necesarios con el namespace del proyecto que configuró previamente (CURRENT_NS)
 
 ```bash
 ./searchReplaceNs.sh
@@ -428,7 +428,7 @@ oc adm policy add-scc-to-user cap-cr-scc -z instanton-sa-$CURRENT_NS
 
 ### Implementar la aplicación base
 
-> **IMPORTANTE** : asegúrese de completar todos los campos `[Your initial]` con el espacio de nombres utilizado en el paso de creación anterior antes de continuar para aplicar el archivo YAML.
+> **IMPORTANTE** : asegúrese de completar todos los campos `[Your initial]` con el namespace utilizado en el paso de creación anterior antes de continuar para aplicar el archivo YAML.
 
 ```bash
 oc apply -f deploy-without-instanton.yaml
@@ -463,7 +463,7 @@ spec:
 
 ### Implementar la aplicación con InstantOn
 
-> **IMPORTANTE** : asegúrese de completar todos los campos `[Your initial]` con el espacio de nombres utilizado en el paso de creación anterior antes de continuar para aplicar el archivo YAML.
+> **IMPORTANTE** : asegúrese de completar todos los campos `[Your initial]` con el namespace utilizado en el paso de creación anterior antes de continuar para aplicar el archivo YAML.
 
 ```bash
 oc apply -f deploy-with-instanton.yaml
