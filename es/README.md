@@ -60,7 +60,8 @@ Este laboratorio se basará en dos entornos diferentes: el del laboratorio anter
 
 URL de VNC: proporcionada por el instructor
 
-**Clúster OpenShift compartido:** https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+**Clúster OpenShift compartido:** 
+https://console-openshift-console.apps.67a3346aadf42b5f8ef28cdc.eu1.techzone.ibm.com/
 
 nombre de usuario: usuario[x] contraseña: passw0rd
 
