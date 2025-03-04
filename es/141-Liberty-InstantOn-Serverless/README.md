@@ -44,6 +44,18 @@ su
 
 Utilice como contraseña root: `IBMDem0s!`
 
+### Upgrade OpenJDK
+
+```bash
+wget https://github.com/ibmruntimes/semeru21-binaries/releases/download/jdk-21.0.2%2B13_openj9-0.43.0/ibm-semeru-open-21-jdk-21.0.2.13_0.43.0-1.x86_64.rpm
+yum localinstall ibm-semeru-open-21-jdk-21.0.2.13_0.43.0-1.x86_64.rpm 
+alternatives --config java
+vi ~/.bashrc
+	export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-21.0.2.0.13-1.el9.x86_64
+	PATH=$PATH:JAVA_HOME/bin
+source ~/.bashrc
+```
+
 ### Clonar la aplicación desde GitHub
 
 ```bash
