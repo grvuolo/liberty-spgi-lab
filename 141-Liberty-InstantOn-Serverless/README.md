@@ -71,7 +71,7 @@ cd liberty-spgi-lab/141-Liberty-InstantOn-Serverless
 
 ### Login to the OpenShift console, using the following URL:
 
-A shared OpenShist cluster has been provisioned at the following URL: https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+A shared OpenShist cluster has been provisioned at the following URL: https://console-openshift-console.apps.67a3346aadf42b5f8ef28cdc.eu1.techzone.ibm.com/
 
 go to `IBM Demo`
 
@@ -291,7 +291,7 @@ export OCP_REGISTRY_PASSWORD=eyJhbGciOiJSUzI1NiIsImtpZCI6IlpwUVFqYVRFb1phdVhSUEx
 Now set the OpenShift registry host value.
 
 ```bash
-export OCP_REGISTRY_HOST=default-route-openshift-image-registry.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+export OCP_REGISTRY_HOST=default-route-openshift-image-registry.apps.67a3346aadf42b5f8ef28cdc.eu1.techzone.ibm.com
 ```
 
 Finally, we have the values needed for podman to login into the OpenShift registry server.
