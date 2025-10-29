@@ -335,8 +335,8 @@ You should see the following output:
 
 
 ```bash
-OPERATOR_NAMESPACE=instantonlab-[Your initial]
-WATCH_NAMESPACE=instantonlab-[Your initial]
+OPERATOR_NAMESPACE=student-[your-number]
+WATCH_NAMESPACE=student-[your-number]
 ##
 curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.3.1/kubectl/openliberty-app-operator.yaml \
       | sed -e "s/OPEN_LIBERTY_WATCH_NAMESPACE/${WATCH_NAMESPACE}/" \
@@ -512,7 +512,7 @@ If you run into the following error when running `oc get csv `:
 
 ```bash
 oc get csv
-No resources found in instantonlab-[your initial] namespace.
+No resources found in student-[your-number] namespace.
 ```
 
 Please wait a few more minutes and then try again. It should return the correct output.
