@@ -274,30 +274,15 @@ oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"
 ### Log Podman into the OpenShift registry server [IF NEEDED]
 
 
-> **NOTE**: this step is not necessary as the secret is already provided by the instructor and access to registry is available with the login to OCP
-
-First we need to get the `TOKEN` that we can use to get the password for the registry.
 
 ```bash
-oc get secrets -n openshift-image-registry | grep cluster-image-registry-operator-token
-```
-
-Take note of the `TOKEN` value, as you need to substitute it in the following command that sets the registry password.
-
-```bash
-export OCP_REGISTRY_PASSWORD=eyJhbGciOiJSUzI1NiIsImtpZCI6IlpwUVFqYVRFb1phdVhSUExPVmFrdXhjR1R3TmR0TU4yd216aU5UNHdEOEEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtaW1hZ2UtcmVnaXN0cnkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY2x1c3Rlci1pbWFnZS1yZWdpc3RyeS1vcGVyYXRvci10b2tlbi02ZDg2MiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJjbHVzdGVyLWltYWdlLXJlZ2lzdHJ5LW9wZXJhdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMDQwZDVhM2YtYjg1Ny00MWI2LTlhZDYtOTllOGI1YmY4ZTgwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW5zaGlmdC1pbWFnZS1yZWdpc3RyeTpjbHVzdGVyLWltYWdlLXJlZ2lzdHJ5LW9wZXJhdG9yIn0.lVf_JvbJapMfZPHog-HqUJa54pqbJwxztNZFk_7ckhPrds0yghGbl5_EhDusdC6ovHimEeWs8UGZn4f4xRhEDcu_5ELm4QKgMNeev3oIeM-9y2Xnk-YdY7XHGGRFXET6UpkoPd5HAud0hj6wI1moxXkPG75Vy6J98L_9wl4yYansZo3Y6UHXary6ZOvpB-Fnf1yJW5ujMgrdBWjW6-Z4IlTF7UeKt9HjNTKADTskmVe-ngR1yeRMQB313Ob2btiCNHyRKHj0dV8_xzK5gCLQoEdbcInUkjLs5pcyOxMQ8TnTNlR1vnUby1qbeneCs2Ibd2xLz-3nE55yEJV88MLIZw
-```
-
-Now set the OpenShift registry host value.
-
-```bash
-export OCP_REGISTRY_HOST=default-route-openshift-image-registry.apps.67a3346aadf42b5f8ef28cdc.eu1.techzone.ibm.com
+HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 ```
 
 Finally, we have the values needed for podman to login into the OpenShift registry server.
 
 ```bash
-podman login -p $OCP_REGISTRY_PASSWORD -u user[number] $OCP_REGISTRY_HOST --tls-verify=false
+podman login -u kubeadmin -p $(oc whoami -t) $HOST
 ```
 
 ### Tag and push your 2 application images to the OpenShift registry
