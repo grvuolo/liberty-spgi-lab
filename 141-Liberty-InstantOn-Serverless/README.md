@@ -57,12 +57,12 @@ cd liberty-spgi-lab/141-Liberty-InstantOn-Serverless
 
 ### Login to the OpenShift console, using the following URL:
 
-A shared OpenShist cluster has been provisioned at the following URL: https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+A shared OpenShist cluster has been provisioned at the following URL: https://onsole-openshift-console.apps.itz-iqzpvp.infra01-lb.fra02.techzone.ibm.com
 
 go to `IBM Demo`
 
-username: user[x]
-password: passw0rd
+username: kubeadmin
+password: A9Ebr-GrZTw-r9eIs-WGE3g
 
 ### Login to the OpenShift CLI [IF NEEDED]
 
@@ -260,30 +260,14 @@ oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"
 ### Log Podman into the OpenShift registry server [IF NEEDED]
 
 
-> **NOTE**: this step is not necessary as the secret is already provided by the instructor and access to registry is available with the login to OCP
-
-First we need to get the `TOKEN` that we can use to get the password for the registry.
-
 ```bash
-oc get secrets -n openshift-image-registry | grep cluster-image-registry-operator-token
-```
-
-Take note of the `TOKEN` value, as you need to substitute it in the following command that sets the registry password.
-
-```bash
-export OCP_REGISTRY_PASSWORD=eyJhbGciOiJSUzI1NiIsImtpZCI6IlpwUVFqYVRFb1phdVhSUExPVmFrdXhjR1R3TmR0TU4yd216aU5UNHdEOEEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtaW1hZ2UtcmVnaXN0cnkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY2x1c3Rlci1pbWFnZS1yZWdpc3RyeS1vcGVyYXRvci10b2tlbi02ZDg2MiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJjbHVzdGVyLWltYWdlLXJlZ2lzdHJ5LW9wZXJhdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMDQwZDVhM2YtYjg1Ny00MWI2LTlhZDYtOTllOGI1YmY4ZTgwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW5zaGlmdC1pbWFnZS1yZWdpc3RyeTpjbHVzdGVyLWltYWdlLXJlZ2lzdHJ5LW9wZXJhdG9yIn0.lVf_JvbJapMfZPHog-HqUJa54pqbJwxztNZFk_7ckhPrds0yghGbl5_EhDusdC6ovHimEeWs8UGZn4f4xRhEDcu_5ELm4QKgMNeev3oIeM-9y2Xnk-YdY7XHGGRFXET6UpkoPd5HAud0hj6wI1moxXkPG75Vy6J98L_9wl4yYansZo3Y6UHXary6ZOvpB-Fnf1yJW5ujMgrdBWjW6-Z4IlTF7UeKt9HjNTKADTskmVe-ngR1yeRMQB313Ob2btiCNHyRKHj0dV8_xzK5gCLQoEdbcInUkjLs5pcyOxMQ8TnTNlR1vnUby1qbeneCs2Ibd2xLz-3nE55yEJV88MLIZw
-```
-
-Now set the OpenShift registry host value.
-
-```bash
-export OCP_REGISTRY_HOST=default-route-openshift-image-registry.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 ```
 
 Finally, we have the values needed for podman to login into the OpenShift registry server.
 
 ```bash
-podman login -p $OCP_REGISTRY_PASSWORD -u user[numero] $OCP_REGISTRY_HOST --tls-verify=false
+podman login -u kubeadmin -p $(oc whoami -t) $HOST
 ```
 
 ### Tag and push your 2 application images to the OpenShift registry
@@ -336,8 +320,8 @@ You should see the following output:
 
 
 ```bash
-OPERATOR_NAMESPACE=instantonlab-[Your initial]
-WATCH_NAMESPACE=instantonlab-[Your initial]
+OPERATOR_NAMESPACE=student-[your-number]
+WATCH_NAMESPACE=student-[your-number]
 ##
 curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/1.3.1/kubectl/openliberty-app-operator.yaml \
       | sed -e "s/OPEN_LIBERTY_WATCH_NAMESPACE/${WATCH_NAMESPACE}/" \
@@ -513,7 +497,7 @@ If you run into the following error when running `oc get csv `:
 
 ```bash
 oc get csv
-No resources found in instantonlab-[your initial] namespace.
+No resources found in student-[your-number] namespace.
 ```
 
 Please wait a few more minutes and then try again. It should return the correct output.
