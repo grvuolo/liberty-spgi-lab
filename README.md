@@ -61,11 +61,11 @@ VNC URL: provided by instructor
 
 
 **Shared OpenShift Cluster:**
-https://console-openshift-console.apps.ocp-665002rcu7-4u6a.cloud.techzone.ibm.com
+https://console-openshift-console.apps.itz-iqzpvp.infra01-lb.fra02.techzone.ibm.com
 
 
-username: user[x]
-password: passw0rd
+username: kubeadmin
+password: A9Ebr-GrZTw-r9eIs-WGE3g
 
 
 **Labs:**
