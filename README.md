@@ -65,6 +65,7 @@ https://console-openshift-console.apps.itz-iqzpvp.infra01-lb.fra02.techzone.ibm.
 
 
 username: kubeadmin
+
 password: A9Ebr-GrZTw-r9eIs-WGE3g
 
 
