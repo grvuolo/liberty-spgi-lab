@@ -62,7 +62,7 @@ A shared OpenShist cluster has been provisioned at the following URL: https://on
 go to `IBM Demo`
 
 username: kubeadmin
-password: A9Ebr-GrZTw-r9eIs-WGE3g
+password: <secret>
 
 ### Login to the OpenShift CLI [IF NEEDED]
 
